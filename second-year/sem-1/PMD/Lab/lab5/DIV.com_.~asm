@@ -1,0 +1,77 @@
+
+; You may customize this and other start-up templates;
+; The location of this template is c:\emu8086\inc\0_com_template.txt
+
+org 100h
+
+.data
+A db 0
+B db 0
+rez dw 0
+
+.code
+
+MOV AH,1     ;Citire A
+INT 21h
+
+MOV A, Al    ; A = AL
+SUB A, 30h
+
+
+MOV AH,1     ;Citire B
+INT 21h
+
+MOV B, AL    ; B = AL
+SUB B, 30h
+
+MOV AX,0
+
+MOV Al, A
+MOV Bl, B
+
+DIV Bl
+MOV rez, AX
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+MOV DL, 10
+MOV AH,2     ;new line
+INT 21h
+
+MOV DL, 13
+MOV AH,2     ;new line from start
+INT 21h
+
+MOV AX, rez
+
+MOV DL,AL
+ADD DL,30h   ;decimal -< Ascii
+
+MOV AH,2     ;Afisare
+INT 21h
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+MOV DL, 44  ; Afisare ' , '
+
+MOV AH,2     ;Afisare
+INT 21h
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+MOV AX, rez
+
+MOV DL,AH
+ADD DL,30h   ;decimal -< Ascii
+
+MOV AH,2     ;Afisare
+INT 21h
+
+ret
+
+
+
+
+
+
+
+
+; [SOURCE]: F:\Study\UPT\Anul II\PMD\Lab\lab5\DIV.asm
