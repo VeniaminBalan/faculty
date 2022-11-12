@@ -1,0 +1,3 @@
+﻿  Source.c
+F:\Study\UPT\Anul II\AA\lab3\lab3\Source.c(41,26): warning C4013: 'stergereChild' undefined; assuming extern returning int
+F:\Study\UPT\Anul II\AA\lab3\lab3\Source.c(46,6): error C2371: 'stergereChild': redefinition; different basic types
